@@ -8,5 +8,5 @@ ___
 
 ##### 文章列表：
 
-* [知识图谱系列（一）：如何构建一个简单的知识图谱]("https://github.com/JesseYule/KnowledgeGraphBeginner")
+* [知识图谱系列（一）：如何构建一个简单的知识图谱](https://blog.csdn.net/jesseyule/article/details/110453709)
 
