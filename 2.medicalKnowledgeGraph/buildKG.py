@@ -7,7 +7,7 @@ class MedicalGraph:
     # 图数据库初始化设置
     def __init__(self):
         cur_dir = '/'.join(os.path.abspath('__file__').split('//')[:-1])
-        self.data_path = os.path.join(cur_dir, './data/simplest_medical.json')
+        self.data_path = os.path.join(cur_dir, './data/simple_medical.json')
         # 配置Neo4j
         self.g = Graph(
             host='127.0.0.1',
@@ -52,6 +52,8 @@ class MedicalGraph:
             data_json = json.loads(data)
             disease = data_json['name']
             disease_dict['name'] = disease
+            diseases.append(disease)
+
             disease_dict['desc'] = ''
             disease_dict['prevent'] = ''
             disease_dict['cause'] = ''
@@ -190,10 +192,7 @@ class MedicalGraph:
             # 存入疾病信息
             disease_infos.append(disease_dict)
             data = file.readline()
-        return set(drugs), set(foods), set(checks), set(departments), set(producers), set(symptoms), set(
-            diseases), disease_infos, \
-               rels_check, rels_recommandeat, rels_noteat, rels_doeat, rels_department, rels_commonddrug, rels_drug_producer, rels_recommanddrug, \
-               rels_symptom, rels_acompany, rels_category
+        return set(drugs), set(foods), set(checks), set(departments), set(producers), set(symptoms), set(diseases), disease_infos, rels_check, rels_recommandeat, rels_noteat, rels_doeat, rels_department, rels_commonddrug, rels_drug_producer, rels_recommanddrug, rels_symptom, rels_acompany, rels_category
 
     # 建立节点
     def create_node(self, label, nodes):
